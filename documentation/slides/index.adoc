@@ -1,0 +1,104 @@
+include::locale/attributes.adoc[]
+
+[role="paper container"]
+
+= LeoCloud
+:stylesheet: css/styles.css
+:docinfodir: docinfo
+:imagesdir: images
+:author: T. Stütz, C. Aberger
+:email: c.aberger@htl-leonding.ac.at
+:revnumber: 1.0
+:revdate: {docdate}
+:revremark: SCHILF @ HTL Leonding
+:encoding: utf-8
+:lang: de
+:doctype: article
+:icons: font
+:toc:
+
+
+[%notitle]
+== Cloud Computing Grundbegriffe
+
+
+* *Container*: Ein Container ist ein Paket mit dem auszuführenden Programm und allen seinen Abhängigkeiten, wie z.B. die Laufzeitumgebung, System-Bibliotheken..., alles zusammengepackt in einer "Schachtel" -> Ergebnis von _docker build_. 
+* *Kubernetes*: Kubernetes (von griechisch κυβερνήτης, "Steuermann") ist ein Open-Source-System zur Automatisierung der Bereitstellung, Skalierung und Verwaltung von Container-Anwendungen.
+* *Node*: ein Computer
+* *Cluster*: Ein Kubernetes Cluster ist eine gewisse Anzahl von Nodes um Container - Anwendungen auszuführen.
+
+* *Pod*: Ein Pod ist eine logische Verpackungseinheit für einen Container, um diesen auf einem Cluster auszuführen. 
+
+.Ein Kubernetes Cluster
+image::kubernetescluster.png[Kubernetes Cluster,float="center",align="center"]
+
+* *Controller*: Etwas, das den Ist- Zustand mit dem Soll-Zustand vergleicht und den Ist-Zustand ändert, bis er dem Soll-Zustand entspricht.
+* *ReplicaSet*: versucht immer eine stabile Menge von Pods am Laufen zu halten.
+* *Deployment*: stellt deklarative Updates für Pods und Replicasets zur Verfügung. Der _Controller_ ändert den Status der Deployments, so dass dieser dem vorgegebenen Zustand des Deployments entspricht.
+* *Service*: Ein abstrakter Weg um eine Applikation, die auf einer Menge von Pods läuft, nach außen verfügbar zu machen. 
+* *Ingress*: ein Controller, der ständig nachsieht, ob es aktuell neue Services gibt, die - falls ja - auf einem öffentlichen Port in das Internet freigegeben werden.
+
+.Ingress
+image::ingress.png[Ingress,float="center",align="center"]
+
+
+== Workshop
+
+Die LeoCloud zum Anfassen und Mitarbeiten.
+
+=== die kanonische Anwendung
+:hide-uri-scheme:
+
+Die Anwendung https://github.com/caberger/leocloud[caberger/leocloud] ist ein Beispiel dafür, wie wir aus unserem Source Code automatisch alle benötigten Container erzeugen und diese anschliessend in die Cloud installieren. 
+
+=== benötigte Software
+
+Um mit diesem Beispiel zu arbeiten, benötigen wir für unser Betriebssystem folgende kostenlose Anwendungen:
+
+
+* https://code.visualstudio.com/[Visual Studio Code]
+* https://github.com/[Github Konto]
+* https://cloud.htl-leonding.ac.at/[LeoCloud Konto]
+* https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier[Oracle Cloud Konto (optional)]
+
+
+Windows Benutzer benötigen noch folgende zusätzlichen Installationen:
+
+* https://docs.microsoft.com/en-us/windows/wsl/install[WSL2]
+* https://docs.microsoft.com/en-us/windows/terminal/install[Windows Terminal]
+* https://ubuntu.com/wsl[Ubuntu unter WSL2]
+
+== Kubernetes
+
+Wenn Sie Ihre email als Github Secret angegeben haben (siehe readme.md im k8s Verzeichnis), dann wird ein Deployment File erzeugt (siehe Anhang).
+Speichern Sie diesen unter dem Dateinamen deployment.yaml.
+Dann können sie Ihre Anwendung mit folgender Anweisung in die Cloud einspielen:
+[source,bash]
+----
+ kubectl apply -f deployment.yaml
+----
+
+.Kubernetes (von griechisch κυβερνήτης, "Steuermann")
+image::helmsman.jpg[Kubernetes ,320,,float="center",align="center"]
+
+=== kubectl
+
+Beim Debugging von Kubernetes hilft das https://kubernetes.io/docs/reference/kubectl/cheatsheet/[Kubectl Cheat Sheet].
+Beispiel: die Logs des init-scripts eines Pods ansehen mit:
+
+
+.kubectl log command
+[source,bash]
+----
+ kubectl logs <podname> -c <init-container-name>
+----
+
+[appendix]
+
+== Kubernetes Deyployment File
+
+.deployment.yaml
+[source,bash]
+----
+include::deployment.yaml[]
+----

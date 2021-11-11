@@ -1,0 +1,46 @@
+# docker file for local development and debugging
+version: '3.3'
+services:
+  db:
+    image: postgres:13.3-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: db
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db-postgres/db:/var/lib/postgresql/data
+      - ./db-postgres/import:/import
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  appsrv:
+    build:
+      context: ./appsrv
+      dockerfile: Dockerfile.jvm
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+    depends_on:
+      - db
+  nginx:
+    build: nginx
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    ports:
+      - 4000:80
+    depends_on:
+      - appsrv
+volumes:
+  database:
