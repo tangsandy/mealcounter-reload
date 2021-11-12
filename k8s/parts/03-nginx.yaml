@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: ghcr.io/$GITHUB_ACCOUNT/leocloud-nginx:latest
+          image: ghcr.io/$GITHUB_ACCOUNT/mealcounter-reload-nginx:latest
           ports:
             - containerPort: 80
           env:

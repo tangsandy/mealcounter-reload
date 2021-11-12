@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: appsrv
-          image: ghcr.io/$GITHUB_ACCOUNT/leocloud-appsrv:latest
+          image: ghcr.io/$GITHUB_ACCOUNT/mealcounter-reload-appsrv:latest
           ports:
             - containerPort: 8080
           resources:

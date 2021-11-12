@@ -2,23 +2,24 @@
 
 version: '3.3'
 services:
-  mysql:
-    image: mysql:8
-    restart: always
+  db:
+    image: postgres:13.3-alpine
     environment:
-      MYSQL_DATABASE: 'db'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'password'
-      MYSQL_ROOT_HOST: '%'
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: db
     ports:
-      - 3306:3306
-    expose:
-      - 3306
+      - 5432:5432
     volumes:
-      - database:/var/lib/
+      - ./db-postgres/db:/var/lib/postgresql/data
+      - ./db-postgres/import:/import
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
   appsrv:
-    image: leo-appsrv
+    image: ghcr.io/mandelrosaliejanina/mealcounter-reload-appsrv:latest
     deploy:
       restart_policy:
         condition: on-failure
@@ -30,7 +31,7 @@ services:
     depends_on:
       - db
   nginx:
-    image: leo-nginx
+    image: ghcr.io/mandelrosaliejanina/mealcounter-reload-nginx:latest
     deploy:
       restart_policy:
         condition: on-failure

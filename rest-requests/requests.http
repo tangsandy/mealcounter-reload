@@ -1,0 +1,63 @@
+GET http://localhost:8080/api/consumation/findAll
+
+####
+
+POST http://localhost:8080/api/consumation/saveConsumation
+Content-Type: application/json
+
+{
+  "person":{
+    "firstName": "Rosi",
+    "lastName": "Dosi",
+    "yearno": 2020,
+    "className": "1c"
+  },
+  "date": "2020-06-06",
+  "hasConsumed" : "true"
+}
+
+
+####
+
+GET http://localhost:8080/api/person
+
+####
+POST http://localhost:8080/api/person
+Content-Type: application/json
+
+{
+  "firstName": "Rosi",
+  "lastName": "Dosi",
+  "yearno": 2020,
+  "className": "1c"
+}
+
+
+###
+
+GET http://localhost:8080/api/person/3
+
+####
+
+POST http://localhost:8080/api/nfcCard/345
+Content-Type: application/json
+
+####
+
+POST http://localhost:8080/api/nfcCard/assignCard/788/1
+Content-Type: application/json
+
+####
+
+POST http://localhost:8080/api/nfcCard/assignCard/123/2
+Content-Type: application/json
+
+
+###
+
+GET http://localhost:8080/api/person/importPersons
+
+###
+
+GET http://localhost:8080/api/consumation/importConsumations
+
