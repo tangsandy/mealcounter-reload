@@ -2,7 +2,7 @@ GET http://localhost:8080/api/consumation/findAll
 
 ####
 
-POST http://localhost:8080/api/consumation/saveConsumation
+POST http://localhost:8080/api/consumation/create
 Content-Type: application/json
 
 {
