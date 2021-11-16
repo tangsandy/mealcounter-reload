@@ -43,16 +43,16 @@ public class ConsumationEndpoint {
     }
 
 
-//    @POST
-//    @Path("/create")
-//    @Transactional
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response create(Consumation consumation, @Context UriInfo info) {
-//        consumationRepository.persist(consumation);
-//        return Response.created(URI.create(info.getPath() + "/"+ consumation.getId())).build();
-//    }
-//
+    @POST
+    @Path("/create")
+    @Transactional
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response create(Consumation consumation, @Context UriInfo info) {
+        consumationRepository.persist(consumation);
+        return Response.created(URI.create(info.getPath() + "/"+ consumation.getId())).build();
+    }
+
 //    @GET
 //    @Path("/{id}")
 //    @Produces(MediaType.APPLICATION_JSON)
