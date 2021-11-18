@@ -46,14 +46,14 @@ public class PersonEndpoint {
     }
 
 
-//    @GET
-//    @Path("/{id}")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    public Response findById(@PathParam("id") long id) {
-//        return Response.ok( personRepository.findById(id)).build();
-//
-//    }
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response findById(@PathParam("id") long id) {
+        return Response.ok( personRepository.findById(id)).build();
+
+    }
 
 
 

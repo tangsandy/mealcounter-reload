@@ -111,4 +111,16 @@ public class NfcEndpoint {
 
     }
 
+
+
+    @GET
+    @Path("{cardId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response findByNfcId(@PathParam("cardId") long id) {
+        return Response.ok( nfcRepository.findById(id)).build();
+
+    }
+
+
 }

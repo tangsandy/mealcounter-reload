@@ -11,13 +11,14 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="distribution" target="1.5" />
-      <module name="leocloud-demo-app" target="1.5" />
+      <module name="distribution" target="17" />
+      <module name="leocloud-demo-app" target="17" />
       <module name="leocloud-quarkus" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="leocloud-demo-app" options="--add-modules java.smartcardio" />
       <module name="leocloud-quarkus" options="-parameters" />
     </option>
   </component>
