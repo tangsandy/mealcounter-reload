@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa7d0dba-f6db-4c2a-be8b-6e0aaf960499" name="Changes" comment="test sendData">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/ci-cd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci-cd.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apdu4j-demo" beforeDir="false" afterPath="$PROJECT_DIR$/apdu4j-demo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
