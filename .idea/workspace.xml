@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="162ee13d-e511-43df-b4e5-18bbd3b7e4ff" name="Changes" comment="new project commited">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apdu4j-demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/apdu4j-demo/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +102,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1637919341193</updated>
-      <workItem from="1637919343160" duration="762000" />
+      <workItem from="1637919343160" duration="1990000" />
+      <workItem from="1637921462475" duration="54000" />
+      <workItem from="1637921585455" duration="6000" />
+      <workItem from="1637921911728" duration="343000" />
     </task>
     <task id="LOCAL-00001" summary="new project commited">
       <created>1637919563979</created>
@@ -110,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637919563979</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add subproject apdu4j">
+      <created>1637920167328</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1637920167328</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,9 +137,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new project commited" />
-    <option name="LAST_COMMIT_MESSAGE" value="new project commited" />
+    <MESSAGE value="add subproject apdu4j" />
+    <option name="LAST_COMMIT_MESSAGE" value="add subproject apdu4j" />
   </component>
 </project>
