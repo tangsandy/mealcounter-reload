@@ -5,7 +5,7 @@ name: build and deploy (develop)
 
 on:
   push:
-    branches: [ development ]
+    branches: [ master ]
 
   workflow_dispatch:
     inputs:
@@ -155,4 +155,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "done"
-     
