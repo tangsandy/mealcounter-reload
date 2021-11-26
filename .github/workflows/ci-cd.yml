@@ -51,6 +51,12 @@ jobs:
         echo "GRAALVM_HOME=/opt/graalvm" >> $GITHUB_ENV
       working-directory: /opt
 
+  - name: install apdu4j
+      run: |
+        chmod +x import-to-local-m2.sh
+        ./import-to-local-m2.sh
+      working-directory: apdu4j-demo
+
     - name: build supersonic native quarkus application
       run: |
         echo "graal home is $GRAALVM_HOME"

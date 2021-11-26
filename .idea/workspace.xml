@@ -105,7 +105,7 @@
       <workItem from="1637919343160" duration="1990000" />
       <workItem from="1637921462475" duration="54000" />
       <workItem from="1637921585455" duration="6000" />
-      <workItem from="1637921911728" duration="927000" />
+      <workItem from="1637921911728" duration="1289000" />
     </task>
     <task id="LOCAL-00001" summary="new project commited">
       <created>1637919563979</created>
@@ -128,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637922634123</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add step">
+      <created>1637923343918</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1637923343918</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +157,7 @@
     <MESSAGE value="new project commited" />
     <MESSAGE value="add subproject apdu4j" />
     <MESSAGE value="rename artifactId to apdu4j" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename artifactId to apdu4j" />
+    <MESSAGE value="add step" />
+    <option name="LAST_COMMIT_MESSAGE" value="add step" />
   </component>
 </project>
