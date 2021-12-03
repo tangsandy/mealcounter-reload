@@ -13,7 +13,7 @@ class TagLoaderTest {
     public void testSendData(){
 
         TagLoader tagLoader = new TagLoader();
-        tagLoader.sendData("http://152.70.175.53/api/nfcCard/assignCard/7070/5");
+        tagLoader.sendData("http://152.70.175.53/api/nfccard/assign-card/3424/5");
 
     }
 
@@ -22,7 +22,7 @@ class TagLoaderTest {
         TagLoader tagLoader = new TagLoader();
 
         try {
-            tagLoader.getData("http://152.70.175.53/api/findByNfcId/7070");
+            tagLoader.getData("http://152.70.175.53/api/nfccard/nfcid/1234");
         } catch (Exception e) {
             e.printStackTrace();
         }

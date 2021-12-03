@@ -17,7 +17,7 @@ import javax.ws.rs.core.UriInfo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Path("/nfcCard")
+@Path("/nfccard")
 public class NfcEndpoint {
 
     @Inject
@@ -66,11 +66,13 @@ public class NfcEndpoint {
     }
 
     @POST
-    @Path("assignCard/{cardId}/{personId}")
+    @Path("assign-card/{cardId}/{personId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response assignCardToPerson(@PathParam("cardId") String cardId,@PathParam("personId") String personId, @Context UriInfo info) {
+    public Response assignCardToPerson(@PathParam("cardId") String cardId,
+                                       @PathParam("personId") String personId,
+                                       @Context UriInfo info) {
         System.out.println("Card Id: " + cardId);
         System.out.println("Person Id: " + personId);
 
@@ -114,7 +116,7 @@ public class NfcEndpoint {
 
 
     @GET
-    @Path("{cardId}")
+    @Path("nfcid/{cardId}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response findByNfcId(@PathParam("cardId") long id) {
