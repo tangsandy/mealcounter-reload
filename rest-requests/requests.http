@@ -44,14 +44,18 @@ Content-Type: application/json
 
 ####
 
-POST http://152.70.175.53/api/nfcCard/assignCard/234/3
+POST http://152.70.175.53/api/nfccard/assign-card/234/3
 Content-Type: application/json
 
 ####
 
-POST http://localhost:8080/api/nfcCard/assignCard/123/2
+POST http://localhost:8080/api/nfccard/assign-card/123/2
 Content-Type: application/json
 
+###
+
+GET http://localhost:8080/api/nfccard/nfcid/123
+Content-Type: application/json
 
 ###
 
@@ -66,4 +70,6 @@ GET http://localhost:8080/api/consumation/importConsumations
 
 GET  http://152.70.175.53/api/nfcCard/findByNfcId/5
 
+
+###
 

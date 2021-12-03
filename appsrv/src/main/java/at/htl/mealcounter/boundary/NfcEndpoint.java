@@ -10,10 +10,7 @@ import at.htl.mealcounter.entity.Person;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -97,7 +94,7 @@ public class NfcEndpoint {
 
         } else {
 
-            System.out.println("Karte exsistiert nicht -> wird der Datenbank engetragen ");
+            System.out.println("Karte exsistiert nicht -> wird der Datenbank eingetragen ");
             System.out.println("Neue Karte wird Person zugewiesen");
             nfcRepository.persist(new NfcCard(cardId));
             Person person = personRepository.findById(Long.valueOf(personId));
@@ -106,11 +103,13 @@ public class NfcEndpoint {
 
         }
 
-        return Response.ok().build(); //(URI.create(info.getPath() + "/"+ data.nfcId)).build();
-        // statt Response.ok(), sollte dann überprüft werden ob essen scho gegessen wurde:
-        //    - wenn ja, rotes licht für raspberry pi
-        //    - wenn nein, grünes licht für raspberry pi
+        UriBuilder uriBuilder = info.getBaseUriBuilder()
+                .path("nfccard")
+                .path("nfcid")
+                .path(cardId);
 
+        return Response.created(uriBuilder.build()).build(); //(URI.create(info.getPath() + "/"+ data.nfcId)).build();
+        // statt Response.ok(), sollte dann überprüft werden ob essen scho gegessen wurde:
     }
 
 
@@ -119,8 +118,8 @@ public class NfcEndpoint {
     @Path("nfcid/{cardId}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response findByNfcId(@PathParam("cardId") long id) {
-        return Response.ok( nfcRepository.findById(id)).build();
+    public Response findByNfcId(@PathParam("cardId") String id) {
+        return Response.ok( nfcRepository.findByNfcId(id)).build();
 
     }
 

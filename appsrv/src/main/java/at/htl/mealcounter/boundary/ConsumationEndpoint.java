@@ -81,7 +81,7 @@ public class ConsumationEndpoint {
 //    }
 //
     @GET
-    @Path("/importConsumations")
+    @Path("import-consumations")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
     public Response importConsumations() {
