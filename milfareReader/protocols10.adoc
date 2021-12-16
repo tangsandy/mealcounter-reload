@@ -1,0 +1,72 @@
+= Besprechungsprotokoll 10.12.2021
+Sandy Tang, Rosalie Mandel, Kelly Tran
+1.0, 10.12.2021: Some notes
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+
+ifdef::backend-html5[]
+
+icon:file-text-o[link=https://raw.githubusercontent.com/htl-leonding-college/asciidoctor-docker-template/master/asciidocs/{docname}.adoc] ‏ ‏ ‎
+icon:github-square[link=https://github.com/htl-leonding-college/asciidoctor-docker-template] ‏ ‏ ‎
+icon:home[link=https://htl-leonding.github.io/]
+endif::backend-html5[]
+
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Vorname Nachname
+|
+|TS
+|
+|MR
+|
+
+
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+
+|In der Schule
+
+|von-bis
+|08:55-09:45, 10:00-10:50
+|Dauer
+|1h 30min
+|===
+
+== Was haben wir gemacht
+* Zuerst haben wir die Dependency eingebunden
+..........
+<dependency>
+<groupId>com.fazecast</groupId>
+<artifactId>jSerialComm</artifactId>
+<version>[2.0.0,3.0.0)</version>
+</dependency>
+..........
+* In der Klasse Main haben wir eine Methode read() geschrieben, welche in der main() Methode aufgerufen wird.
+* Wir haben den Code von
+https://github.com/Fazecast/jSerialComm/wiki/Java-InputStream-and-OutputStream-Interfacing-Usage-Example übernommen und diesen angepasst.
+* Der an den Laptop angschlossene Main wird erkannt und schickt die Bytes zurück welche aussagen das ein Modul existiert.
+** Zeile 21: https://github.com/matthiasbock/Mifare-M302/blob/master/protocol.txt
+.......
+0x03, 0x12,0x00,0x15
+.......
+
+* Wir schicken mittels Inputstream (serieller Port) eine Anfrage an der Main und der Main antwortet mittels Outputstream.
+
+== Todo
+* Schauen welcher Main angeschlossen ist (nicht wie jetzt immer auf 8)
+* Überprüfen ob eine Karte oben ist und welche Id diese hat
+
+
+
+== Benutzte Links
+* https://github.com/Fazecast/jSerialComm
+* https://github.com/matthiasbock/Mifare-M302
+* https://github.com/Fazecast/jSerialComm/wiki/Java-InputStream-and-OutputStream-Interfacing-Usage-Example
+* https://github.com/matthiasbock/Mifare-M302/blob/master/protocol.txt
