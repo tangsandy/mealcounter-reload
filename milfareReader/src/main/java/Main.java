@@ -22,6 +22,10 @@ public class Main {
         reader.open();
         reader.enquiryCard();
         reader.close();
+
+        reader.open();
+        reader.anticollision();
+        reader.close();
     }
 
 /*    byte[] prot ={

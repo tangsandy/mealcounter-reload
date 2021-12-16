@@ -83,30 +83,25 @@ public class MifareReader {
     }
 
     public boolean anticollision() {
-/*        os = port.getOutputStream();
+        os = port.getOutputStream();
         var ok = false;
 
         var greeting = new byte[]{0x02, 0x03, 0x05};
-        var response = new byte[]{0x06, 0x03, 0x32, 0x78, 0x13, 0x0E8,  0x0AE};
+        var response = new byte[]{0x06, 0x03, 0x32, 0x78, 0x13, (byte) 0x0E8, (byte) 0x0AE};
 
         ok = communicateWithReader(os,greeting,response);
-        return ok;*/
+        return ok;
     }
 
     public boolean communicateWithReader(OutputStream os, byte[] greeting, byte[] response){
         var ok = false;
-        byte[] buffer ;
+        byte[] buffer = new byte[response.length];
+
         try {
             os.write(greeting);
             os.flush();
 
             InputStream in = port.getInputStream();
-
-            if(response.length == 3){
-                 buffer = new byte[3];
-            }else {
-                buffer = new byte[4];
-            }
 
             for (int j = 0; j < buffer.length; ++j) {
                 byte ch = (byte) in.read();
