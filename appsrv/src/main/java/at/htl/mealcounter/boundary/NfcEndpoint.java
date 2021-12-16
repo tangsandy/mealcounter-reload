@@ -27,7 +27,7 @@ public class NfcEndpoint {
     PersonRepository personRepository;
 
     @POST
-    @Path("/{cardId}")
+    @Path("assign-card/{cardId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
@@ -55,7 +55,14 @@ public class NfcEndpoint {
 
         }
 
-        return Response.ok().build(); //(URI.create(info.getPath() + "/"+ data.nfcId)).build();
+        UriBuilder uriBuilder = info.getBaseUriBuilder()
+                .path("nfccard")
+                .path("nfcid")
+                .path(cardId);
+
+        return Response.created(uriBuilder.build()).build();
+
+        //(URI.create(info.getPath() + "/"+ data.nfcId)).build();
         // statt Response.ok(), sollte dann überprüft werden ob essen scho gegessen wurde:
         //    - wenn ja, rotes licht für raspberry pi
         //    - wenn nein, grünes licht für raspberry pi
