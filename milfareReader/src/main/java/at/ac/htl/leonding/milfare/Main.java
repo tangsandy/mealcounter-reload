@@ -1,30 +1,34 @@
-import at.ac.htl.leonding.mifare.MifareReader;
+package at.ac.htl.leonding.milfare;
+
 import com.fazecast.jSerialComm.SerialPort;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
-
 public class Main {
+    static MifareReader reader;
+
     public static void main(String[] args) {
+        String id= "";
         findReader();
+        while(true ){
+            reader.open();
+            reader.enquiryCard();
+            reader.close();
+
+            reader.open();
+            while (id != null) {
+                id = reader.anticollision();
+                reader.close();
+            }
+            TagLoader tagLoader = new TagLoader();
+            tagLoader.sendData("http://152.70.175.53/api/nfccard/assign-card/" +  id);
+        }
 
     }
 
     private static void findReader() {
-        var reader = MifareReader.findReader();
-        System.out.println(reader.toString());
+        reader = MifareReader.findReader();
+        System.out.println("Reader: " + reader.toString());
         reader.open();
         reader.beep();
-        reader.close();
-
-        reader.open();
-        reader.enquiryCard();
-        reader.close();
-
-        reader.open();
-        reader.anticollision();
         reader.close();
     }
 
@@ -45,7 +49,7 @@ public class Main {
         var reader = new MifareReader(comPort);
         reader.open();
         var isOpen = reader.hello();
-        System.out.println(isOpen? "open\n" : "closed\n");
+        System.out.println(isOpen? "open" : "closed");
         reader.close();
         return isOpen;
     }

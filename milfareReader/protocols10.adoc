@@ -48,19 +48,19 @@ endif::backend-html5[]
 <version>[2.0.0,3.0.0)</version>
 </dependency>
 ..........
-* In der Klasse Main haben wir eine Methode read() geschrieben, welche in der main() Methode aufgerufen wird.
+* In der Klasse at.ac.htl.leonding.mifare.Main haben wir eine Methode read() geschrieben, welche in der main() Methode aufgerufen wird.
 * Wir haben den Code von
 https://github.com/Fazecast/jSerialComm/wiki/Java-InputStream-and-OutputStream-Interfacing-Usage-Example übernommen und diesen angepasst.
-* Der an den Laptop angschlossene Main wird erkannt und schickt die Bytes zurück welche aussagen das ein Modul existiert.
+* Der an den Laptop angschlossene at.ac.htl.leonding.mifare.Main wird erkannt und schickt die Bytes zurück welche aussagen das ein Modul existiert.
 ** Zeile 21: https://github.com/matthiasbock/Mifare-M302/blob/master/protocol.txt
 .......
 0x03, 0x12,0x00,0x15
 .......
 
-* Wir schicken mittels Inputstream (serieller Port) eine Anfrage an der Main und der Main antwortet mittels Outputstream.
+* Wir schicken mittels Inputstream (serieller Port) eine Anfrage an der at.ac.htl.leonding.mifare.Main und der at.ac.htl.leonding.mifare.Main antwortet mittels Outputstream.
 
 == Todo
-* Schauen welcher Main angeschlossen ist (nicht wie jetzt immer auf 8)
+* Schauen welcher at.ac.htl.leonding.mifare.Main angeschlossen ist (nicht wie jetzt immer auf 8)
 * Überprüfen ob eine Karte oben ist und welche Id diese hat
 
 
