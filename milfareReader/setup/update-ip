@@ -1,0 +1,14 @@
+[Unit]
+After=network-online.target
+Want=network-online.target
+Description=update ip adress on start up
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/nfcMealCounter/script.sh
+User=root
+
+[Install]
+After=network-online.target
+WantedBy=multi-user.target
+
