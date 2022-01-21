@@ -1,0 +1,66 @@
+= Besprechungsprotokoll 10.12.2021
+Sandy Tang, Rosalie Mandel, Kelly Tran
+1.0, 10.12.2021: Some notes
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+
+ifdef::backend-html5[]
+
+icon:file-text-o[link=https://raw.githubusercontent.com/htl-leonding-college/asciidoctor-docker-template/master/asciidocs/{docname}.adoc] ‏ ‏ ‎
+icon:github-square[link=https://github.com/htl-leonding-college/asciidoctor-docker-template] ‏ ‏ ‎
+icon:home[link=https://htl-leonding.github.io/]
+endif::backend-html5[]
+
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Vorname Nachname
+|
+|TS
+|
+|MR
+|
+|
+
+
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+
+|In der Schule
+
+|von-bis
+|08:55-09:45, 10:00-10:50
+|Dauer
+|1h 30min
+|===
+
+== Was haben wir gemacht
+=== Raspberry und Noip
+
+* update-ip.service befindet sich im /usr/lib Ordner am Raspberry
+* script.sh befindet sich im /usr/local/bin/nfcMealCounter Ordner am Raspberry
+
+===== Wenn NoIp redeem ist
+
+* Neuen Hostname in NoIp erstellen -> NEURHOSTNAME
+* script.sh file am raspberry öffnen und "/usr/bin/curl -vs
+
+"http://tangsandy:Klaw9Om7@dynupdate.no-ip.com/nic/update?hostname=###NEURHOSTNAME###&q=$random&myip=$help" >> /tmp/ip.txt 2>&1
+
+* dann kann Raspberry im Terminal mit ssh pi@NEURHOSTNAME gestartet werden
+
+=== Starten des MifareReader Projekts
+* im lokalen Projektterminal "mvn clean package"
+* das erstellte milfareReader-1.0.0.jar File im target Ordner auf Raspi kopieren und dort mit "java -jar milfareReader-1.0.0.jar" starten
+
+
+
+
+
+
