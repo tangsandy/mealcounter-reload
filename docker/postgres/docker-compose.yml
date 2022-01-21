@@ -1,0 +1,15 @@
+# docker file for local development and debugging
+version: '3.3'
+services:
+  db:
+    image: postgres:13.3-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: db
+    ports:
+      - 5432:5432
+    volumes:
+      - database
+volumes:
+  database:
