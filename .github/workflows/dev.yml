@@ -44,13 +44,6 @@ jobs:
         path: './www/node_modules'
         key: ${{ runner.os }}-www-node-modules-v0.0.2-${{ hashFiles('./www/package.json') }}
 
-    - name: install apdu4j
-      run: |
-        chmod +x import-to-local-m2.sh
-        ./import-to-local-m2.sh
-      working-directory: apdu4j-demo
-
-
     - name: build quarkus application
       run: |
         mvn -Dquarkus.package.type=uber-jar -Dquarkus-profile=prod -Dbase.href="/" -B package
