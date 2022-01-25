@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @RequestScoped
-@Path("/device")
+@Path("/api/device")
 public class DeviceEndpoint {
 
     @POST

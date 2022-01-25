@@ -14,7 +14,7 @@ import javax.ws.rs.core.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Path("/nfccard")
+@Path("/api/nfccard")
 public class NfcEndpoint {
 
     @Inject

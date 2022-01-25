@@ -15,7 +15,7 @@ import javax.ws.rs.core.UriInfo;
 
 
 @RequestScoped
-@Path("/person")
+@Path("/api/person")
 public class PersonEndpoint {
 
 

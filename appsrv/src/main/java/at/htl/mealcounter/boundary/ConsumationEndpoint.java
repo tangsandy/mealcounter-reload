@@ -19,7 +19,7 @@ import java.net.URI;
 import java.util.List;
 
 @RequestScoped
-@Path("/consumation")
+@Path("/api/consumation")
 public class ConsumationEndpoint {
 
     @Inject
