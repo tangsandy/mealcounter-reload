@@ -1,6 +1,0 @@
-target/
-lib/
-
-# in .idea/compiler.xml the compileroptions for smartcard.io are set
-# *.iml
-# .idea/

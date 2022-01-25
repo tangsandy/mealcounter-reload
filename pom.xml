@@ -30,7 +30,6 @@
   <modules>
     <module>appsrv</module>
     <module>distribution</module>
-    <module>apdu4j-demo</module>
   </modules>
   <build>
     <pluginManagement>
