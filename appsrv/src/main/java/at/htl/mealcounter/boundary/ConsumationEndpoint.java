@@ -20,75 +20,27 @@ import java.util.List;
 
 @RequestScoped
 @Path("/api/consumation")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class ConsumationEndpoint {
 
     @Inject
     ConsumationRepository consumationRepository;
 
     @GET
-    @Path("/findAll")
-    @Produces(MediaType.APPLICATION_JSON)
     public Response findAll() {
-
-
-
-
         List<Consumation> consumationList = consumationRepository.findAll().list();
-
         for (int i = 0; i < consumationList.size(); i++) {
             System.out.println(consumationList.get(i).toString());
         }
-
         return Response.ok().build();
     }
 
 
     @POST
-    @Path("/create")
-    @Transactional
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public Response create(Consumation consumation, @Context UriInfo info) {
         consumationRepository.persist(consumation);
         return Response.created(URI.create(info.getPath() + "/"+ consumation.getId())).build();
-    }
-
-//    @GET
-//    @Path("/{id}")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    public Response findById(@PathParam("id") long id) {
-//        return Response.ok( consumationRepository.findById(id)).build();
-//    }
-//
-//    @DELETE
-//    @Path("{id}")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Transactional
-//    public Response delete(@PathParam("id") Long id) {
-//        try {
-//            consumationRepository.deleteById(id);
-//            return Response
-//                    .noContent()
-//                    .build();
-//        } catch (IllegalArgumentException e) {
-//            return Response
-//                    .status(400)
-//                    .header("Reason","Consumation with id" +id  + "does not exist")
-//                    .build();
-//        }
-//    }
-//
-    @GET
-    @Path("import-consumations")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Transactional
-    public Response importConsumations() {
-
-        consumationRepository.fillWithTestData();
-
-        return Response.ok().build();
     }
 
 }
