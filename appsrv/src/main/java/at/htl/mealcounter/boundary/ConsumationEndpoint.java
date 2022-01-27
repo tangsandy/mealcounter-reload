@@ -26,8 +26,8 @@ public class ConsumationEndpoint {
     @GET
     public Response findAll() {
         List<Consumation> consumationList = consumationRepository.findAll().list();
-        for (int i = 0; i < consumationList.size(); i++) {
-            System.out.println(consumationList.get(i).toString());
+        for (Consumation consumation : consumationList) {
+            System.out.println(consumation.toString());
         }
         return Response.ok().build();
     }
