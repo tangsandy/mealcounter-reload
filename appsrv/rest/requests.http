@@ -1,0 +1,63 @@
+//Person Endpoint
+//Make sure that import.sql is executed
+GET http://localhost:8080/api/person
+
+
+####
+
+GET http://localhost:8080/api/person/1
+
+#####
+
+DELETE http://localhost:8080/api/person/1
+
+#####
+
+//NfcEnpoint
+
+GET http://localhost:8080/api/nfccard
+
+###
+GET http://localhost:8080/api/nfccard/nfcid/abc
+
+
+###
+
+POST http://localhost:8080/api/nfccard/nfc
+Content-Type: application/json
+
+{
+  "nfcId": "nfccardosi"
+}
+
+###
+
+// Consumation Endpoit
+
+
+GET http://localhost:8080/api/consumation
+
+###
+//doesnt work
+POST http://localhost:8080/api/consumation
+Content-Type: application/json
+
+{
+  "person": {
+    "id": 1,
+    "firstName": "Rosi",
+    "lastName": "Dosi",
+    "yearno": 2020,
+    "className": "1c"
+  },
+  "date": "2020-06-06",
+  "hasConsumed": "true"
+}
+
+
+###
+
+// Device Endpoint
+// i dont understand this endpoint
+POST http://localhost:8080/api/device/device
+
