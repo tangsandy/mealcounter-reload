@@ -3,17 +3,15 @@ package at.htl.mealcounter.boundary;
 import at.htl.mealcounter.control.ConsumationRepository;
 import at.htl.mealcounter.control.NfcRepository;
 import at.htl.mealcounter.control.PersonRepository;
-import at.htl.mealcounter.entity.Consumation;
 import at.htl.mealcounter.entity.NfcCard;
-import at.htl.mealcounter.entity.Person;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import javax.ws.rs.*;
-import javax.ws.rs.core.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
 @Path("api/nfccard")
 @RequestScoped
@@ -39,9 +37,9 @@ public class NfcEndpoint {
     @POST
     @Path("/nfc")
     public Response nfcCardDetected(NfcCard data, @Context UriInfo info) {
-        if(nfcRepository.cardExists(data.nfcId)){
+        if (nfcRepository.cardExists(data.nfcId)) {
             System.out.println("card exists");
-        }else {
+        } else {
             nfcRepository.persist(data);
         }
 
@@ -56,7 +54,7 @@ public class NfcEndpoint {
     @GET
     @Path("nfcid/{cardId}")
     public Response findByNfcId(@PathParam("cardId") String id) {
-        return Response.ok( nfcRepository.findByNfcId(id)).build();
+        return Response.ok(nfcRepository.findByNfcId(id)).build();
 
     }
 
@@ -148,9 +146,6 @@ public class NfcEndpoint {
 //        return Response.created(uriBuilder.build()).build(); //(URI.create(info.getPath() + "/"+ data.nfcId)).build();
 //        // statt Response.ok(), sollte dann überprüft werden ob essen scho gegessen wurde:
 //    }
-
-
-
 
 
 }

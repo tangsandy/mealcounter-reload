@@ -2,16 +2,12 @@ package at.htl.mealcounter.boundary;
 
 
 import at.htl.mealcounter.control.PersonRepository;
-import at.htl.mealcounter.entity.NfcCard;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 
 
 @RequestScoped
@@ -37,7 +33,6 @@ public class PersonEndpoint {
         return Response.ok( personRepository.findById(id)).build();
 
     }
-
 
 
     @DELETE
