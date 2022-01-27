@@ -4,7 +4,6 @@ package at.htl.mealcounter.control;
 import at.htl.mealcounter.entity.NfcCard;
 import at.htl.mealcounter.entity.Person;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -12,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 @ApplicationScoped
+@Transactional
 public class NfcRepository implements PanacheRepository<NfcCard> {
 
     @Inject
