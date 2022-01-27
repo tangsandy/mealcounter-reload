@@ -1,1 +1,7 @@
-<p>meals-overview works!</p>
+<table mat-table *ngIf="persons">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *ngFor="let person of persons"> {{person.id}} </td>
+  </ng-container>
+</table>
