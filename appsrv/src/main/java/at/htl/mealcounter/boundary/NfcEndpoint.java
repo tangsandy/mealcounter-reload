@@ -3,15 +3,23 @@ package at.htl.mealcounter.boundary;
 import at.htl.mealcounter.control.ConsumationRepository;
 import at.htl.mealcounter.control.NfcRepository;
 import at.htl.mealcounter.control.PersonRepository;
+import at.htl.mealcounter.dto.NfcCardDto;
 import at.htl.mealcounter.entity.NfcCard;
 
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.json.bind.annotation.JsonbDateFormat;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 
 @Path("api/nfccard")
 @RequestScoped
@@ -44,7 +52,7 @@ public class NfcEndpoint {
         }
 
 
-        return Response.ok().build(); //(URI.create(info.getPath() + "/"+ data.nfcId)).build();
+        return Response.ok(data).build(); //(URI.create(info.getPath() + "/"+ data.nfcId)).build();
         // statt Response.ok(), sollte dann überprüft werden ob essen scho gegessen wurde:
         //    - wenn ja, rotes licht für raspberry pi
         //    - wenn nein, grünes licht für raspberry pi
@@ -58,6 +66,27 @@ public class NfcEndpoint {
 
     }
 
+    @POST
+    @Path("/create")
+    public Response create(NfcCardDto nfcCardDto, @Context UriInfo info) {
+
+        Date input = new Date(nfcCardDto.registerDateTime);
+        LocalDateTime date = input.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+
+        var nfcCard = new NfcCard();
+        nfcCard.nfcId = nfcCardDto.nfcId;
+        nfcCard.registerDateTime = date;
+
+
+
+        var url= info.getAbsolutePathBuilder().path(nfcCard.nfcId).build().toString();
+        System.out.println(url);
+
+        nfcRepository.persist(nfcCard);
+        return Response
+                .created(URI.create(url))
+                .build();
+    }
 
 //
 //    @POST

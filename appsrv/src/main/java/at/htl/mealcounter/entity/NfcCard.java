@@ -3,6 +3,7 @@ package at.htl.mealcounter.entity;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
+import javax.json.bind.annotation.JsonbDateFormat;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,6 +21,7 @@ public class NfcCard extends PanacheEntityBase {
     public String nfcId;
 
     @Column(name = "REGISTER_DATE_TIME")
+    @JsonbDateFormat(value = "yyyy-MM-dd")
     public LocalDateTime registerDateTime;
 
     public NfcCard(String nfcId) {
@@ -33,6 +35,11 @@ public class NfcCard extends PanacheEntityBase {
 
 
     public NfcCard(LocalDateTime registerDateTime) {
+        this.registerDateTime = registerDateTime;
+    }
+
+    public NfcCard(String nfcId, LocalDateTime registerDateTime) {
+        this.nfcId = nfcId;
         this.registerDateTime = registerDateTime;
     }
 

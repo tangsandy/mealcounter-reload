@@ -22,16 +22,23 @@ GET http://localhost:8080/api/nfccard/nfcid/abc
 
 
 ###
-
 POST http://localhost:8080/api/nfccard/nfc
 Content-Type: application/json
 
 {
-  "nfcId": "nfccardosi"
+  "nfcId": "nfcsandy"
 }
 
 ###
+POST http://localhost:8080/api/nfccard/create
+Content-Type: application/json
 
+{
+  "nfcId": "34z87zfwij3wrn",
+  "registerDateTime": 1643362458
+}
+
+###
 // Consumation Endpoit
 
 
@@ -60,4 +67,5 @@ Content-Type: application/json
 // Device Endpoint
 // i dont understand this endpoint
 POST http://localhost:8080/api/device/device
+
 
