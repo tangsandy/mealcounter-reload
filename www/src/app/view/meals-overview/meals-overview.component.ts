@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {BackendService} from "../../service/backend.service";
-
+import {HttpClient} from "@angular/common/http";
 
 export interface Person {
   id: number;
-  nfcCard: NfcCard;
+  nfccard: NfcCard;
   firstName: string;
   lastName: string;
   entryYear: number;
@@ -22,7 +22,6 @@ export interface Consumation {
   hasConsumed: boolean;
 }
 
-
 @Component({
   selector: 'app-meals-overview',
   templateUrl: './meals-overview.component.html',
@@ -31,22 +30,19 @@ export interface Consumation {
 
 export class MealsOverviewComponent implements OnInit {
 
-  consumations: Consumation[];
-  displayedColumns: string[] = ['id', 'personId', 'date', 'hasConsumed'];
+  @Output() consumationSelected: EventEmitter<Object> = new EventEmitter<Object>();
+  persons: Person[] | null;
+  displayedColumns: string[] = ['id', 'eintrittsjahr', 'vorname', 'nachname', 'nfc_Card'];
 
-
-  constructor(private readonly backend: BackendService) {
-
-    this.consumations = [];
-
+  constructor(private readonly backend: BackendService,
+              private http: HttpClient) {
+    this.persons = null;
   }
 
   ngOnInit(): void {
-    this.backend.get('consumation').then(value => {
-      this.consumations = value as Consumation[];
-      console.log(this.consumations)
-
-
+    this.backend.get('person').then(value => {
+      this.persons = value as Person[];
+      this.consumationSelected.emit();
     });
   }
 }
