@@ -1,7 +1,16 @@
-<table mat-table *ngIf="persons">
+<table *ngIf="consumations">
+  <tr>
+    <th> ID</th>
+    <th> PERSON ID</th>
+    <th> DATE</th>
+    <th> HAS CONSUMED</th>
+  </tr>
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> ID </th>
-    <td mat-cell *ngFor="let person of persons"> {{person.id}} </td>
-  </ng-container>
+  <tr *ngFor="let consumation of consumations">
+    <td> {{consumation.id}}</td>
+    <td> {{consumation.person.lastName}}</td>
+    <td> {{consumation.date}}</td>
+    <td> {{consumation.hasConsumed}}</td>
+  </tr>
 </table>
+
