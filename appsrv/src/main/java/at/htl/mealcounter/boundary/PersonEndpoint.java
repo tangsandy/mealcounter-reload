@@ -23,7 +23,7 @@ public class PersonEndpoint {
 
     @GET
     public Response findAll() {
-        return Response.ok(personRepository.findAll()).build();
+        return Response.ok(personRepository.listAll()).build();
     }
 
 

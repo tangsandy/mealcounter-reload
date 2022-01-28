@@ -29,7 +29,7 @@ public class ConsumationEndpoint {
         for (Consumation consumation : consumationList) {
             System.out.println(consumation.toString());
         }
-        return Response.ok().build();
+        return Response.ok(consumationList).build();
     }
 
 

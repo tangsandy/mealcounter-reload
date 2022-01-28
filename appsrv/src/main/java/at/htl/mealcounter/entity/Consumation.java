@@ -3,12 +3,12 @@ package at.htl.mealcounter.entity;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
+import javax.json.bind.annotation.JsonbDateFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "M_CONSUMATION")
-
 public class Consumation extends PanacheEntityBase {
 
 
@@ -22,6 +22,7 @@ public class Consumation extends PanacheEntityBase {
     private Person person;
 
     @Column(name = "DATE")
+    @JsonbDateFormat(value = "dd/MM/yyyy")
     private LocalDate date;
 
     @Column(name = "HASCONSUMED")
