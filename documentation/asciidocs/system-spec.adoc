@@ -1,0 +1,73 @@
+= nfc meal counter
+
+## Projektarichtekture:
+
+image::images/Projektarichtektur.png[Projektarichtekture]
+
+## Systemarchitektur
+image::images/Systemarchitektur.png[Systemarchitektur]
+
+
+## Ausgangssituation:
+
+Die TNMS-Helfenberg ist eine Schule mit 65 Schülerinnen und Schüler
+mit dem Fokus auf Technik, Mathematik und Englisch.
+An jedem Schultag wird an die Schüler eine Mahlzeit pro Kopf ausgegeben.
+Um die Kosten fürs Essen später zu berechnen
+wird zurzeit alles händisch mit protokolliert.
+
+
+## Ist-Zustand:
+
+Es sind derzeit 5 Leute mit der Abrechnung beschäftigt.
+4 KV's die eine Papiertabelle abzeichnen und eine 5. Person
+die die Tabelle vorbereitet und nach Kontrolle digitalisiert.
+
+
+## Problemstellung:
+
+
+Das händische Protokollieren ist zwar nicht schwierig, kann aber für das Personal aufwendig sein. Die Zeit, die dafür gebraucht wird, kann für andere, nutzvolle Dinge verwendet werden.
+
+
+## Aufgabenstellung:
+
+Es ist ein Programm zu entwickeln, dass mithilfe eines nfc-Readers überprüft, das jede Schülerin und jeder Schüler an der TNMS Helfenberg,
+täglich immer eine Mahlzeit bekommt. Die Schüler legen eine nfc-Karte auf den nfc-Reader und so werden die Berechnungen und Kosten automatisch mit protokolliert, in die Datenbank geschrieben und
+anschließend in Excel Tabellen exportiert.
+
+
+## Ziele:
+
+* Schelle Protokollierung der Essensabholungen der Schüler
+* Erleichterung der Verwaltung
+* Verhinderung von Missbrauch also keine doppelten Essensabholungen
+* Verwaltung der Anzahl der Mahlzeiten jedes Schülers
+* Verwaltung der Berechnungen der Kosten sowie Abrechnungen jedes Schülers
+
+
+## Mengengerüst:
+
+Derzeit umfasst die Schüleranzahl rund 65 SchülerInnen
+
+
+## Use-Case:
+
+
+* Ein Schüler holt sich ein Essen
+* Ein Schüler versucht sich ein 2. Essen zu holen und es wird ihm verweigert
+* Monatlicher Exel-Export wird durchgeführt
+* Für jeden Schüler wird eine Essensrechnung erstellt
+
+
+
+[plantuml]
+
+[plantuml,ucd]
+----
+include::../asciidocs/plantuml/ucd.puml[]
+----
+
+
+
+

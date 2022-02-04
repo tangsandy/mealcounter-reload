@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+        actor Person
+        actor Admin
+
+        rectangle {
+
+        Person -- (bucht Essen)
+        Admin -- (Person vom System abmelden)
+        (Person vom System abmelden) .> (sämtliche Geschäftsfälle abschließen) :include
+        Admin -- (Excel-Export durchführen)
+        Admin -- (Karte im System registrieren)
+        Admin -- (Karte einer Person zuweisen)
+        Admin --|> Person
+
+        }
+@enduml
