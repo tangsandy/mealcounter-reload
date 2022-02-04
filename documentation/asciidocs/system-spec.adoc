@@ -1,14 +1,14 @@
 = nfc meal counter
 
-## Projektarichtekture:
+== Projektarichtekture:
 
 image::images/Projektarichtektur.png[Projektarichtekture]
 
-## Systemarchitektur
+== Systemarchitektur
 image::images/Systemarchitektur.png[Systemarchitektur]
 
 
-## Ausgangssituation:
+== Ausgangssituation:
 
 Die TNMS-Helfenberg ist eine Schule mit 65 Schülerinnen und Schüler
 mit dem Fokus auf Technik, Mathematik und Englisch.
@@ -17,27 +17,27 @@ Um die Kosten fürs Essen später zu berechnen
 wird zurzeit alles händisch mit protokolliert.
 
 
-## Ist-Zustand:
+== Ist-Zustand:
 
 Es sind derzeit 5 Leute mit der Abrechnung beschäftigt.
 4 KV's die eine Papiertabelle abzeichnen und eine 5. Person
 die die Tabelle vorbereitet und nach Kontrolle digitalisiert.
 
 
-## Problemstellung:
+== Problemstellung:
 
 
 Das händische Protokollieren ist zwar nicht schwierig, kann aber für das Personal aufwendig sein. Die Zeit, die dafür gebraucht wird, kann für andere, nutzvolle Dinge verwendet werden.
 
 
-## Aufgabenstellung:
+== Aufgabenstellung:
 
 Es ist ein Programm zu entwickeln, dass mithilfe eines nfc-Readers überprüft, das jede Schülerin und jeder Schüler an der TNMS Helfenberg,
 täglich immer eine Mahlzeit bekommt. Die Schüler legen eine nfc-Karte auf den nfc-Reader und so werden die Berechnungen und Kosten automatisch mit protokolliert, in die Datenbank geschrieben und
 anschließend in Excel Tabellen exportiert.
 
 
-## Ziele:
+== Ziele:
 
 * Schelle Protokollierung der Essensabholungen der Schüler
 * Erleichterung der Verwaltung
@@ -46,12 +46,12 @@ anschließend in Excel Tabellen exportiert.
 * Verwaltung der Berechnungen der Kosten sowie Abrechnungen jedes Schülers
 
 
-## Mengengerüst:
+== Mengengerüst:
 
 Derzeit umfasst die Schüleranzahl rund 65 SchülerInnen
 
 
-## Use-Case:
+== Use-Case:
 
 
 * Ein Schüler holt sich ein Essen
