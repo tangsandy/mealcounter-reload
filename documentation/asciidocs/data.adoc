@@ -1,0 +1,26 @@
+= nfc meal counter
+
+== Projektarichtekture:
+
+image::images/Projektarichtektur.png[Projektarichtekture]
+
+== Systemarchitektur
+image::images/Systemarchitektur.png[Systemarchitektur]
+
+== Oracle Cloud
+-	ssh oravm-mandel
+-	cd /usr/local/bin/application/
+-	docker-compose up --build
+
+
+[plantuml]
+
+[plantuml,ucd]
+----
+include::../asciidocs/plantuml/ucd.puml[]
+----
+
+
+
+
+

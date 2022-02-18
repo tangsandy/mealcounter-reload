@@ -1,0 +1,19 @@
+@startuml
+
+class Person {
+   nfcId: String
+   firstName: String
+   lastName: String
+   year: int
+   className: String
+}
+
+class Consumation {
+  person: Person
+  date: LocalDate
+  hasConsumed: boolean
+}
+
+Person "1" <-- "*" Consumation: wird gegessen >
+
+@enduml
